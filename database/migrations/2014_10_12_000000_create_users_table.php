@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('nid')->nullable();
             $table->string('dob')->nullable();
-            $table->string('role')->nullable();
+            $table->string('role')->nullable()->default('f');
             $table->string('company_id')->nullable();
             $table->string('agent_id')->nullable();
             $table->rememberToken();

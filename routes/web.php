@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SuperAdmin\ProfileController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,26 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('admin', function (){
-    return view('admin-panel.index');
+
+// -------------------------------------------------------------------- Super Admin --------------------------------------------------------------------
+
+
+Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function () {
+
+
+//    Route::get('admin-profile', [\App\Http\Controllers\SuperAdmin\SuperAdminController::class,'profile']);
+
+//    ----------------------------- Profile -----------------------------
+
+    Route::resource('profile', ProfileController::class);
+
+//    ----------------------------- Profile -----------------------------
+
 });
+
+
+
+
+// -------------------------------------------------------------------- Super Admin --------------------------------------------------------------------
+
+
