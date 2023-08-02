@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Farmer\FarmerController;
 use App\Http\Controllers\SuperAdmin\CompanyRequest;
 use App\Http\Controllers\SuperAdmin\ProfileController;
 use App\Http\Controllers\SuperAdmin\RegisterController;
@@ -64,5 +65,23 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 });
 
 // -------------------------------------------------------------------- Super Admin --------------------------------------------------------------------
+
+// -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
+
+
+Route::middleware(['auth','farmer'])->prefix('farmer')->group(function (){
+    Route::get('test', function (){
+        return "Farmer Test";
+    });
+
+//    ----------------------------- Dashboard -----------------------------
+
+    Route::get('dashboard',[FarmerController::class,'index']);
+
+//    ----------------------------- Dashboard -----------------------------
+
+});
+
+// -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
 
 
