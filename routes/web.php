@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SuperAdmin\CompanyRequest;
 use App\Http\Controllers\SuperAdmin\ProfileController;
+use App\Http\Controllers\SuperAdmin\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -39,10 +41,27 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 
 //    ----------------------------- Profile -----------------------------
 
+
+//    ----------------------------- Register Company/NGO/Bank -----------------------------
+
+    Route::get("register_company", [RegisterController::class, "index"])->name("sp_register_company");
+
+//    ----------------------------- Register Company/NGO/Bank -----------------------------
+
+//    ----------------------------- Company Request -----------------------------
+
+    Route::get("company_request", [CompanyRequest::class, "index"])->name("sp.company_request");
+
+//    ----------------------------- Company Request -----------------------------
+
+
+//    ----------------------------- History -----------------------------
+
+    Route::get("history", [CompanyRequest::class, "history"])->name("sp.user_history");
+
+//    ----------------------------- History -----------------------------
+
 });
-
-
-
 
 // -------------------------------------------------------------------- Super Admin --------------------------------------------------------------------
 

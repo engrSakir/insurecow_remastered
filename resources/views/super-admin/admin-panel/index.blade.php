@@ -8,6 +8,10 @@
     <meta name="author" content=""/>
     <title>Overview</title>
     <link href="{{ asset('css/styles.css') }}" rel="stylesheet"/>
+    <link
+        href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+        rel="stylesheet"
+    />
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}"/>
     <script data-search-pseudo-elements defer
             src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js"
@@ -294,5 +298,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/scripts.js') }}"></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
+    crossorigin="anonymous"
+></script>
+<script src="{{ asset('js/datatables/datatables-simple-demo.js') }}"></script>
 </body>
 </html>

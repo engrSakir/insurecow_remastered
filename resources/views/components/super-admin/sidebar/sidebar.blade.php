@@ -37,9 +37,9 @@
 
 
         <!-- Sidenav Heading (Addons)-->
-        <div class="sidenav-menu-heading">Plugins</div>
+        <div class="sidenav-menu-heading">Super Admin Panel</div>
         <!-- Sidenav Link (Charts)-->
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="#">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Dashboard
         </a>
@@ -50,19 +50,19 @@
         </a>
 
         <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('sp_register_company') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Registration
         </a>
 
         <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('sp.company_request') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Company Request
         </a>
 
         <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="{{ route('sp.user_history') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             History
         </a>
