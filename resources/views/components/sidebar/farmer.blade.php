@@ -6,35 +6,45 @@
 
 
 
-        <!-- Sidenav Heading (Addons)-->
         <div class="sidenav-menu-heading">Farmer Panel</div>
         <!-- Sidenav Link (Charts)-->
         <a class="nav-link" href="#">
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Dashboard
         </a>
-        <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="{{ route('profile.index') }}">
+        <a class="nav-link" href="">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Profile
         </a>
 
-        <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="{{ route('sp_register_company') }}">
+        <a class="nav-link" href="">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            Registration
+            Add Cattle's
         </a>
 
-        <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="{{ route('sp.company_request') }}">
+        <a class="nav-link" href="">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            Company Request
+            View Registered Cattle's
         </a>
 
-        <!-- Sidenav Link (Tables)-->
-        <a class="nav-link" href="{{ route('sp.user_history') }}">
+        <a class="nav-link" href="">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
-            History
+            Farm Management
+        </a>
+
+        <a class="nav-link" href="">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Cattle Insurance
+        </a>
+
+        <a class="nav-link" href="">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Claim Insurance
+        </a>
+
+        <a class="nav-link" href="">
+            <div class="nav-link-icon"><i data-feather="filter"></i></div>
+            Change Password
         </a>
 
         {{-- ---------------------------------- Farmer Navbar ---------------------------------- --}}

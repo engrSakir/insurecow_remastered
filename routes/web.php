@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Farmer\FarmerController;
+use App\Http\Controllers\Farmer\FarmerProfileController;
 use App\Http\Controllers\SuperAdmin\CompanyRequest;
 use App\Http\Controllers\SuperAdmin\ProfileController;
 use App\Http\Controllers\SuperAdmin\RegisterController;
@@ -79,6 +80,14 @@ Route::middleware(['auth','farmer'])->prefix('farmer')->group(function (){
     Route::get('dashboard',[FarmerController::class,'index']);
 
 //    ----------------------------- Dashboard -----------------------------
+
+//    -------------------------- Farmer Profile -----------------------------
+
+    Route::resource('farmer_profile', FarmerProfileController::class);
+
+//    -------------------------- Farmer Profile -----------------------------
+
+
 
 });
 
