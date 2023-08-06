@@ -12,7 +12,7 @@
             <div class="nav-link-icon"><i data-feather="bar-chart"></i></div>
             Dashboard
         </a>
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('farmer_profile.index') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Profile
         </a>

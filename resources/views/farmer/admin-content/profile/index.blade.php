@@ -37,7 +37,7 @@
                             {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
 
 
-                            <form action="" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('farmer_profile.store') }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
 
@@ -69,7 +69,7 @@
                                             type="text"
                                             placeholder=""
                                             value=""
-                                            name=""
+                                            name="mothers_name"
                                         />
                                     </div>
                                 </div>
