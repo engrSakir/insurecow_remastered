@@ -39,6 +39,7 @@
 
                             <form action="{{ route('profile.update', $profile->id) }}" method="post" enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                @method('put')
                                 <!-- Form Group (username)-->
 
                                 <!-- Form Row-->

@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farmer Profile Creation - Farmer
+                                Farmer Profile Update - Farmer
                             </h1>
                         </div>
                     </div>
@@ -30,6 +30,12 @@
 
                 <div class="col-xl-12">
                     <!-- Account details card-->
+
+                    @if(session('update'))
+                        <div class="alert alert-success" role="alert">{{ session('update') }}</div>
+
+                    @endif
+
                     <div class="card mb-4">
                         <div class="card-header">Farmer Profile Creation</div>
                         <div class="card-body">
@@ -37,8 +43,10 @@
                             {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
 
 
-                            <form action="{{ route('farmer_profile.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('farmer_profile.update', $profile->id) }}" method="post"
+                                  enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                @method('put')
                                 <!-- Form Group (username)-->
 
                                 <!-- Form Row-->
@@ -53,7 +61,7 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('fathers_name') }}"
+                                            value="{{ $profile->fathers_name }}"
                                             name="fathers_name"
 
                                         />
@@ -68,7 +76,7 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('mothers_name') }}"
+                                            value="{{ $profile->mothers_name }}"
                                             name="mothers_name"
                                         />
                                     </div>
@@ -86,7 +94,7 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('present_address') }}"
+                                            value="{{ $profile->present_address }}"
                                             name="present_address"
                                         />
                                     </div>
@@ -100,7 +108,8 @@
                                             id="inputLastName"
                                             type="date"
                                             placeholder=""
-                                            value="{{ old('dob') }}"
+                                            value="{{ $profile->dob }}"
+
                                             name="dob"
                                         />
                                     </div>
@@ -118,7 +127,8 @@
                                             id="inputLastName"
                                             type="number"
                                             placeholder=""
-                                            value="{{ old('nid') }}"
+                                            value="{{ $profile->nid }}"
+
                                             name="nid"
                                         />
                                     </div>
@@ -132,7 +142,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('source_of_income') }}"
+                                            value="{{ $profile->source_of_income }}"
+
                                             name="source_of_income"
                                         />
                                     </div>
@@ -150,7 +161,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('bank_account_no') }}"
+                                            value="{{ $profile->bank_account_no }}"
+
                                             name="bank_account_no"
                                         />
                                     </div>
@@ -165,7 +177,7 @@
                                         >Farmer Address</label
                                         >
                                         <textarea class="form-control"
-                                                  name="farmer_address">{{ old('bank_account_no') }}</textarea>
+                                                  name="farmer_address">{{ $profile->farmer_address }}</textarea>
                                     </div>
                                 </div>
 
@@ -182,7 +194,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('thana') }}"
+                                            value="{{ $profile->thana }}"
+
                                             name="thana"
                                         />
                                     </div>
@@ -196,7 +209,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('upazilla') }}"
+                                            value="{{ $profile->upazilla }}"
+
                                             name="upazilla"
                                         />
                                     </div>
@@ -214,7 +228,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('union') }}"
+                                            value="{{ $profile->union }}"
+
                                             name="union"
                                         />
                                     </div>
@@ -228,7 +243,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('city') }}"
+                                            value="{{ $profile->city }}"
+
                                             name="city"
                                         />
                                     </div>
@@ -247,7 +263,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('district') }}"
+                                            value="{{ $profile->district }}"
+
                                             name="district"
                                         />
                                     </div>
@@ -261,7 +278,8 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('zip_code') }}"
+                                            value="{{ $profile->zip_code }}"
+
                                             name="zip_code"
                                         />
                                     </div>
@@ -280,7 +298,9 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('village') }}"
+
+                                            value="{{ $profile->village }}"
+
                                             name="village"
                                         />
                                     </div>
@@ -294,7 +314,9 @@
                                             id="inputLastName"
                                             type="number"
                                             placeholder=""
-                                            value="{{ old('loan_amount') }}"
+
+                                            value="{{ $profile->loan_amount }}"
+
                                             name="loan_amount"
                                         />
                                     </div>
@@ -312,7 +334,9 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('num_of_livestock') }}"
+
+                                            value="{{ $profile->num_of_livestock }}"
+
                                             name="num_of_livestock"
                                         />
                                     </div>
@@ -326,7 +350,9 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('type_of_livestock') }}"
+
+                                            value="{{ $profile->type_of_livestock }}"
+
                                             name="type_of_livestock"
                                         />
                                     </div>
@@ -345,7 +371,9 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('sum_insured') }}"
+
+                                            value="{{ $profile->sum_insured }}"
+
                                             name="sum_insured"
                                         />
                                     </div>
@@ -359,25 +387,31 @@
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('nationality') }}"
+
+                                            value="{{ $profile->nationality }}"
+
                                             name="nationality"
                                         />
                                     </div>
                                 </div>
 
+                                <div class="form-control">
+                                    <img src="{{ asset('storage/'.$profile->image) }}" style="width: 150px">
+                                </div>
 
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (organization name)-->
                                     <div class="col-md-12">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Farmers Image</label
+                                        >Farmer Image</label
                                         >
                                         <input type="file" class="form-control" name="image">
                                     </div>
                                 </div>
 
+
                                 <button class="btn btn-primary" type="submit">
-                                    Save changes
+                                    Update changes
                                 </button>
                             </form>
 

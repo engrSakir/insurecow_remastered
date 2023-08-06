@@ -5,20 +5,13 @@ use App\Http\Controllers\Farmer\FarmerProfileController;
 use App\Http\Controllers\SuperAdmin\CompanyRequest;
 use App\Http\Controllers\SuperAdmin\ProfileController;
 use App\Http\Controllers\SuperAdmin\RegisterController;
+use App\Models\CattleRegistration;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Route::get('log_out', function (){
+    Auth::logout();
+});
 
 Route::get('/', function () {
     return view('welcome');
@@ -86,6 +79,12 @@ Route::middleware(['auth','farmer'])->prefix('farmer')->group(function (){
     Route::resource('farmer_profile', FarmerProfileController::class);
 
 //    -------------------------- Farmer Profile -----------------------------
+
+    //    -------------------------- Cattle Registration -----------------------------
+
+    Route::resource('cattle_register', CattleRegistration::class);
+
+//    -------------------------- Cattle Registration -----------------------------
 
 
 

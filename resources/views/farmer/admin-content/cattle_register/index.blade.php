@@ -31,13 +31,14 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Farmer Profile Creation</div>
+                        <div class="card-header">Cattle Register</div>
                         <div class="card-body">
 
-                            {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
+                            {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
 
 
-                            <form action="{{ route('farmer_profile.store') }}" method="post" enctype="multipart/form-data">
+                            <form action="{{ route('farmer_profile.store') }}" method="post"
+                                  enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
 
@@ -381,7 +382,7 @@
                                 </button>
                             </form>
 
-                            {{-- ---------------------------------------- Farmer Profile Creation ---------------------------------------- --}}
+                            {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
 
                         </div>
                     </div>

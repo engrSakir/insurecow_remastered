@@ -15,7 +15,14 @@ class FarmerProfileController extends Controller
      */
     public function index()
     {
-        return view("farmer.admin-content.profile.index");
+
+
+        if (auth()->user()->farmerProfile()->orderBy('id', 'desc')->count() == 0) {
+            return view('farmer.admin-content.profile.index');
+        } else {
+            $profile = auth()->user()->farmerProfile()->orderBy('id', 'desc')->first();
+            return view('farmer.admin-content.profile.update', compact('profile'));
+        }
     }
 
     /**
@@ -36,7 +43,36 @@ class FarmerProfileController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        $inputs = \request()->validate([
+            'fathers_name' => 'required',
+            'mothers_name' => 'required',
+            'present_address' => 'required',
+            'dob' => 'required',
+            'nid' => 'required',
+            'source_of_income' => 'required',
+            'bank_account_no' => 'required',
+            'farmer_address' => 'required',
+            'thana' => 'required',
+            'upazilla' => 'required',
+            'union' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'zip_code' => 'required',
+            'village' => 'required',
+            'loan_amount' => 'required',
+            'num_of_livestock' => 'required',
+            'type_of_livestock' => 'required',
+            'sum_insured' => 'required',
+            'nationality' => 'required',
+            'image' => 'required|mimes:jpeg,jpg,png',
+        ]);
+
+        if (request('image')) {
+            $inputs['image'] = \request('image')->store('images');
+        }
+
+        auth()->user()->farmerProfile()->create($inputs);
+        return back();
     }
 
     /**
@@ -70,7 +106,41 @@ class FarmerProfileController extends Controller
      */
     public function update(Request $request, FarmerProfile $farmerProfile)
     {
-        //
+
+
+        $inputs = \request()->validate([
+            'fathers_name' => 'required',
+            'mothers_name' => 'required',
+            'present_address' => 'required',
+            'dob' => 'required',
+            'nid' => 'required',
+            'source_of_income' => 'required',
+            'bank_account_no' => 'required',
+            'farmer_address' => 'required',
+            'thana' => 'required',
+            'upazilla' => 'required',
+            'union' => 'required',
+            'city' => 'required',
+            'district' => 'required',
+            'zip_code' => 'required',
+            'village' => 'required',
+            'loan_amount' => 'required',
+            'num_of_livestock' => 'required',
+            'type_of_livestock' => 'required',
+            'sum_insured' => 'required',
+            'nationality' => 'required',
+            'image' => 'mimes:jpeg,jpg,png',
+        ]);
+
+        if (request('image')) {
+            $inputs['image'] = \request('image')->store('images');
+        } else {
+            $inputs['image'] = $farmerProfile->image;
+        }
+
+        auth()->user()->farmerProfile()->where('id', $farmerProfile->id)->update($inputs);
+        session()->flash('update', 'Farmer Profile Updated');
+        return back();
     }
 
     /**

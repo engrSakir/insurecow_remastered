@@ -36,6 +36,7 @@ class CreateFarmerProfilesTable extends Migration
             $table->string('sum_insured');
             $table->string('nationality');
             $table->string('image');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

@@ -46,4 +46,8 @@ class User extends Authenticatable
     public function profile(){
         return $this->hasMany(Profile::class);
     }
+
+    public function farmerProfile(){
+        return $this->hasMany(FarmerProfile::class);
+    }
 }

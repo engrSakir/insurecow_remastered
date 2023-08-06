@@ -16,10 +16,10 @@ class ProfileController extends Controller
     public function index()
     {
 
-        if(auth()->user()->profile()->orderBy('id','desc')->count() == 0){
+        if (auth()->user()->profile()->orderBy('id', 'desc')->count() == 0) {
             return view('super-admin.admin-content.profile.profile');
-        }else{
-            $profile = auth()->user()->profile()->orderBy('id','desc')->first();
+        } else {
+            $profile = auth()->user()->profile()->orderBy('id', 'desc')->first();
             return view('super-admin.admin-content.profile.edit', compact('profile'));
         }
     }
@@ -92,17 +92,18 @@ class ProfileController extends Controller
         $inputs = \request()->validate([
             'website' => 'required',
             'about' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,png',
+            'image' => 'mimes:jpeg,jpg,png',
         ]);
 
         if (request('image')) {
             $inputs['image'] = \request('image')->store('images');
-        }else {
+        } else {
             $inputs['image'] = $profile->image;
         }
 
-//        auth()->user()->profile()->create($inputs);
-//        return back();
+        auth()->user()->profile()->where('id', $profile->id)->update($inputs);
+        session()->flash('update', 'Farmer Profile Updated');
+        return back();
     }
 
     /**
