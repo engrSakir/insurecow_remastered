@@ -15,7 +15,7 @@
                                 <div class="page-header-icon">
                                     <i data-feather="user"></i>
                                 </div>
-                                Farmer Profile Creation - Farmer
+                                Cattle Registration - Farmer
                             </h1>
                         </div>
                     </div>
@@ -31,13 +31,13 @@
                 <div class="col-xl-12">
                     <!-- Account details card-->
                     <div class="card mb-4">
-                        <div class="card-header">Cattle Register</div>
+                        <div class="card-header">Cattle Registration</div>
                         <div class="card-body">
 
                             {{-- ---------------------------------------- Farmer Cow Registration ---------------------------------------- --}}
 
 
-                            <form action="{{ route('farmer_profile.store') }}" method="post"
+                            <form action="{{ route('cattle_register.store') }}" method="post"
                                   enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
@@ -47,30 +47,30 @@
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Fathers Name</label
+                                        >Cattle Name</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('fathers_name') }}"
-                                            name="fathers_name"
+                                            value="{{ old('cattle_name') }}"
+                                            name="cattle_name"
 
                                         />
                                     </div>
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Mothers Name</label
+                                        >Cattle Breed</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('mothers_name') }}"
-                                            name="mothers_name"
+                                            value="{{ old('cattle_breed') }}"
+                                            name="cattle_breed"
                                         />
                                     </div>
                                 </div>
@@ -80,31 +80,33 @@
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Present Address</label
+                                        >Age</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('present_address') }}"
-                                            name="present_address"
+                                            value="{{ old('age') }}"
+                                            name="age"
                                         />
                                     </div>
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >Date of Birth</label
+                                        >Cattle Color</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
-                                            type="date"
+                                            type="text"
                                             placeholder=""
-                                            value="{{ old('dob') }}"
-                                            name="dob"
+                                            value="{{ old('cattle_color') }}"
+                                            name="cattle_color"
                                         />
                                     </div>
+
+
                                 </div>
 
                                 <!-- Form Row-->
@@ -112,273 +114,123 @@
 
                                     <div class="col-md-6">
                                         <label class="small mb-1" for="inputLastName"
-                                        >NID</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder=""
-                                            value="{{ old('nid') }}"
-                                            name="nid"
-                                        />
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Source of Income</label
+                                        >Cattle Weight</label
                                         >
                                         <input
                                             class="form-control"
                                             id="inputLastName"
                                             type="text"
                                             placeholder=""
-                                            value="{{ old('source_of_income') }}"
-                                            name="source_of_income"
+                                            value="{{ old('weight') }}"
+                                            name="weight"
+                                        />
+                                    </div>
+
+
+                                    <div class="col-md-6">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Cattle Type</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="text"
+                                            placeholder=""
+                                            value="{{ old('cattle_type') }}"
+                                            name="cattle_type"
                                         />
                                     </div>
                                 </div>
 
-                                <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Bank Account No</label
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >NID Front</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('bank_account_no') }}"
-                                            name="bank_account_no"
-                                        />
+                                        <input type="file" class="form-control" name="nid_front">
                                     </div>
 
-                                </div>
-
-
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-12">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Farmer Address</label
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >NID Back</label
                                         >
-                                        <textarea class="form-control"
-                                                  name="farmer_address">{{ old('bank_account_no') }}</textarea>
+                                        <input type="file" class="form-control" name="nid_back">
+                                    </div>
+
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Chairman Certification</label
+                                        >
+                                        <input type="file" class="form-control" name="chairman_certificate">
                                     </div>
                                 </div>
 
-
-                                <!-- Form Row-->
                                 <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Thana</label
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Muzzle Of Cow</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('thana') }}"
-                                            name="thana"
-                                        />
+                                        <input type="file" class="form-control" name="muzzle_of_cow">
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Upazilla</label
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Left Side</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('upazilla') }}"
-                                            name="upazilla"
-                                        />
-                                    </div>
-                                </div>
-
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Union</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('union') }}"
-                                            name="union"
-                                        />
+                                        <input type="file" class="form-control" name="left_side">
                                     </div>
 
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >City</label
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Right Side</label
                                         >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('city') }}"
-                                            name="city"
-                                        />
-                                    </div>
-                                </div>
-
-
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >District</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('district') }}"
-                                            name="district"
-                                        />
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Zip Code</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('zip_code') }}"
-                                            name="zip_code"
-                                        />
-                                    </div>
-                                </div>
-
-
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Village</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('village') }}"
-                                            name="village"
-                                        />
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Loan Amount</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="number"
-                                            placeholder=""
-                                            value="{{ old('loan_amount') }}"
-                                            name="loan_amount"
-                                        />
-                                    </div>
-                                </div>
-
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >No of Livestock</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('num_of_livestock') }}"
-                                            name="num_of_livestock"
-                                        />
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Type of Livestock</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('type_of_livestock') }}"
-                                            name="type_of_livestock"
-                                        />
-                                    </div>
-                                </div>
-
-
-                                <!-- Form Row-->
-                                <div class="row gx-3 mb-3">
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Sum Insured</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('sum_insured') }}"
-                                            name="sum_insured"
-                                        />
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputLastName"
-                                        >Nationality</label
-                                        >
-                                        <input
-                                            class="form-control"
-                                            id="inputLastName"
-                                            type="text"
-                                            placeholder=""
-                                            value="{{ old('nationality') }}"
-                                            name="nationality"
-                                        />
+                                        <input type="file" class="form-control" name="right_side">
                                     </div>
                                 </div>
 
 
                                 <div class="row gx-3 mb-3">
                                     <!-- Form Group (organization name)-->
-                                    <div class="col-md-12">
+                                    <div class="col-md-4">
                                         <label class="small mb-1" for="inputOrgName"
-                                        >Farmers Image</label
+                                        >Special Marks</label
                                         >
-                                        <input type="file" class="form-control" name="image">
+                                        <input type="file" class="form-control" name="special_marks">
                                     </div>
+
+                                    <!-- Form Group (organization name)-->
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputOrgName"
+                                        >Cow With Owner</label
+                                        >
+                                        <input type="file" class="form-control" name="cow_with_owner">
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <label class="small mb-1" for="inputLastName"
+                                        >Current Price</label
+                                        >
+                                        <input
+                                            class="form-control"
+                                            id="inputLastName"
+                                            type="number"
+                                            placeholder=""
+                                            value="{{ old('current_price') }}"
+                                            name="current_price"
+                                        />
+                                    </div>
+
                                 </div>
 
+
                                 <button class="btn btn-primary" type="submit">
-                                    Save changes
+                                    Register cattle
                                 </button>
                             </form>
 

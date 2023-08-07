@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Farmer\CattleRegistrationController;
 use App\Http\Controllers\Farmer\FarmerController;
 use App\Http\Controllers\Farmer\FarmerProfileController;
 use App\Http\Controllers\SuperAdmin\CompanyRequest;
@@ -64,9 +65,6 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 
 
 Route::middleware(['auth','farmer'])->prefix('farmer')->group(function (){
-    Route::get('test', function (){
-        return "Farmer Test";
-    });
 
 //    ----------------------------- Dashboard -----------------------------
 
@@ -82,9 +80,18 @@ Route::middleware(['auth','farmer'])->prefix('farmer')->group(function (){
 
     //    -------------------------- Cattle Registration -----------------------------
 
-    Route::resource('cattle_register', CattleRegistration::class);
+    Route::resource('cattle_register', CattleRegistrationController::class);
 
 //    -------------------------- Cattle Registration -----------------------------
+
+//    -------------------------- Cattle Registration -----------------------------
+
+//    -------------------------- view registered cattle -----------------------------
+
+    Route::get('cattle_list', [FarmerController::class,'view_registered_cattle'])->name('cattle.list');
+
+//    -------------------------- view registered cattle -----------------------------
+
 
 
 

@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        if (auth()->user()->role == 'f') {
+            return redirect()->route("farmer_profile.index");
+        } elseif (auth()->user()->role == 'c') {
+            return redirect()->route("profile.index");
+        } else {
+            abort(404);
+        }
     }
 }

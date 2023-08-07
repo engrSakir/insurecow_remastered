@@ -17,12 +17,12 @@
             Profile
         </a>
 
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('cattle_register.index') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             Add Cattle's
         </a>
 
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('cattle.list') }}">
             <div class="nav-link-icon"><i data-feather="filter"></i></div>
             View Registered Cattle's
         </a>

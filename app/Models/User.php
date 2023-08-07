@@ -50,4 +50,8 @@ class User extends Authenticatable
     public function farmerProfile(){
         return $this->hasMany(FarmerProfile::class);
     }
+
+    public function cattleRegister(){
+        return $this->hasMany(CattleRegistration::class);
+    }
 }
