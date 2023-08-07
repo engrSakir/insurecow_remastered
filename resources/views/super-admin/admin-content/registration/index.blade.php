@@ -36,8 +36,15 @@
 
                             {{-- ---------------------------------------- Register Company/NGO/Bank  ---------------------------------------- --}}
 
+                            @if(session('register'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ session('register') }}
+                                </div>
+                            @endif
 
-                            <form action="" method="post" enctype="multipart/form-data">
+
+                            <form action="{{ route('sp_register_company_store') }}" method="post"
+                                  enctype="multipart/form-data">
                                 {{ csrf_field() }}
                                 <!-- Form Group (username)-->
 
@@ -56,7 +63,7 @@
                                             type="text"
                                             placeholder="Enter Company Name"
                                             value=""
-                                            name=""
+                                            name="name"
                                         />
                                     </div>
                                 </div>
@@ -76,7 +83,7 @@
                                             type="text"
                                             placeholder="Enter Phone Number"
                                             value=""
-                                            name=""
+                                            name="phone"
                                         />
                                     </div>
                                 </div>
@@ -96,7 +103,7 @@
                                             type="email"
                                             placeholder="Enter Phone Number"
                                             value=""
-                                            name=""
+                                            name="email"
                                         />
                                     </div>
                                 </div>
@@ -116,7 +123,7 @@
                                             type="password"
                                             placeholder="Enter Phone Number"
                                             value=""
-                                            name=""
+                                            name="password"
                                         />
                                     </div>
                                 </div>
@@ -136,7 +143,7 @@
                                             type="text"
                                             placeholder="Enter Phone Number"
                                             value=""
-                                            name=""
+                                            name="address"
                                         />
                                     </div>
                                 </div>
@@ -150,19 +157,16 @@
                                         <label class="small mb-1" for="inputLastName"
                                         >Registered For</label>
 
-                                        <select class="form-control" id="exampleFormControlSelect2">
-                                            <option>Company</option>
-                                            <option>Bank</option>
-                                            <option>NGO</option>
-                                            <option>MFI</option>
+                                        <select class="form-control" id="exampleFormControlSelect2" name="role">
+                                            <option value="c">Company</option>
+                                            <option value="b">Bank</option>
+                                            <option value="n">NGO</option>
+                                            <option value="m">MFI</option>
                                         </select>
 
 
                                     </div>
                                 </div>
-
-
-
 
 
                                 <button class="btn btn-primary" type="submit">

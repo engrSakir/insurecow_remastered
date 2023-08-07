@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CompanyRequest extends Controller
@@ -12,6 +13,7 @@ class CompanyRequest extends Controller
     }
 
     public function history(){
-        return view("super-admin.admin-content.history.index");
+        $users = User::all();
+        return view("super-admin.admin-content.history.index", compact('users'));
     }
 }

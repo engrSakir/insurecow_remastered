@@ -40,33 +40,41 @@
                                     <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>Date</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
                                         <th>Role</th>
-                                        <th>Details</th>
+                                        <th>Registered At</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
 
                                     <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Company Owner</td>
-                                        <td>Dhanmondi</td>
 
-                                        <td>
-                                            <button
-                                                class="btn btn-datatable btn-icon btn-transparent-dark me-2"
-                                            >
-                                                <i data-feather="more-vertical"></i>
-                                            </button>
-                                            <button
-                                                class="btn btn-datatable btn-icon btn-transparent-dark"
-                                            >
-                                                <i data-feather="trash-2"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+
+                                    @foreach($users as $user)
+
+                                        <tr>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $user->phone }}</td>
+                                            <td>{{ $user->role }}</td>
+                                            <td>{{ $user->created_at->format('d-m-y') }}</td>
+
+                                            <td>
+                                                {{--                                            <button--}}
+                                                {{--                                                class="btn btn-datatable btn-icon btn-transparent-dark me-2"--}}
+                                                {{--                                            >--}}
+                                                {{--                                                <i data-feather="more-vertical"></i>--}}
+                                                {{--                                            </button>--}}
+                                                <button
+                                                    class="btn btn-datatable btn-icon btn-transparent-dark"
+                                                >
+                                                    <i data-feather="trash-2"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>

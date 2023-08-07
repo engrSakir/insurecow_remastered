@@ -17,12 +17,14 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'phone'
-    ];
+//    protected $fillable = [
+//        'name',
+//        'email',
+//        'password',
+//        'phone'
+//    ];
+
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,15 +45,18 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function profile(){
+    public function profile()
+    {
         return $this->hasMany(Profile::class);
     }
 
-    public function farmerProfile(){
+    public function farmerProfile()
+    {
         return $this->hasMany(FarmerProfile::class);
     }
 
-    public function cattleRegister(){
+    public function cattleRegister()
+    {
         return $this->hasMany(CattleRegistration::class);
     }
 }

@@ -10,17 +10,27 @@ use App\Models\CattleRegistration;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('log_out', function (){
-    Auth::logout();
-});
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// -------------------------------------------------------------------- Logout --------------------------------------------------------------------
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('log_out', function () {
+        Auth::logout();
+        return redirect()->route('login');
+    })->name('log_out');
+});
+
+
+// -------------------------------------------------------------------- Logout --------------------------------------------------------------------
 
 
 // -------------------------------------------------------------------- Super Admin --------------------------------------------------------------------
@@ -41,6 +51,7 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 //    ----------------------------- Register Company/NGO/Bank -----------------------------
 
     Route::get("register_company", [RegisterController::class, "index"])->name("sp_register_company");
+    Route::post("register_company", [RegisterController::class, "store"])->name("sp_register_company_store");
 
 //    ----------------------------- Register Company/NGO/Bank -----------------------------
 
@@ -64,11 +75,11 @@ Route::middleware(['auth', 'super.admin'])->prefix('superAdmin')->group(function
 // -------------------------------------------------------------------- Farmer --------------------------------------------------------------------
 
 
-Route::middleware(['auth','farmer'])->prefix('farmer')->group(function (){
+Route::middleware(['auth', 'farmer'])->prefix('farmer')->group(function () {
 
 //    ----------------------------- Dashboard -----------------------------
 
-    Route::get('dashboard',[FarmerController::class,'index']);
+    Route::get('dashboard', [FarmerController::class, 'index']);
 
 //    ----------------------------- Dashboard -----------------------------
 
@@ -88,11 +99,9 @@ Route::middleware(['auth','farmer'])->prefix('farmer')->group(function (){
 
 //    -------------------------- view registered cattle -----------------------------
 
-    Route::get('cattle_list', [FarmerController::class,'view_registered_cattle'])->name('cattle.list');
+    Route::get('cattle_list', [FarmerController::class, 'view_registered_cattle'])->name('cattle.list');
 
 //    -------------------------- view registered cattle -----------------------------
-
-
 
 
 });
