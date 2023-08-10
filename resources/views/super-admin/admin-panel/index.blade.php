@@ -308,6 +308,21 @@
     src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
     crossorigin="anonymous"
 ></script>
+
+
+<script>
+    $(document).ready(function () {
+        // $('#example').DataTable();
+
+        var table = $('#example').DataTable({
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            responsive: true
+        });
+    });
+</script>
+
 <script src="{{ asset('js/datatables/datatables-simple-demo.js') }}"></script>
 </body>
 </html>
